@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_suppliers",
+  "info": {
+    "singularName": "customer-supplier",
+    "pluralName": "customer-suppliers",
+    "displayName": "Customer / Supplier",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Code": {
+      "type": "string",
+      "required": true,
+      "regex": "^[A-Z0-9]+$",
+      "unique": true,
+      "minLength": 6,
+      "maxLength": 9
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "TIN": {
+      "type": "biginteger"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "Country": {
+      "type": "customField",
+      "customField": "plugin::country-select.country"
+    },
+    "PhoneNumber": {
+      "type": "biginteger"
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "MobileNumber": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Active": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "CodeUID": {
+      "type": "uid",
+      "targetField": "Code"
+    },
+    "Type": {
+      "type": "customField",
+      "options": [
+        "Customer",
+        "Supplier"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    }
+  }
+}
