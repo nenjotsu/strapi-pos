@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@bn-digital/strapi-plugin-field-uuid": "^1.1.7",
-    "@chartbrew/plugin-strapi": "^0.4.2",
     "@offset-dev/strapi-calendar": "^0.0.9",
     "@strapi/plugin-graphql": "^4.5.4",
     "@strapi/plugin-i18n": "4.5.4",
@@ -25,11 +24,9 @@
     "strapi-plugin-graphs-builder": "^1.0.0",
     "strapi-plugin-import-export-entries": "^1.18.0",
     "strapi-plugin-multi-select": "^1.1.0",
-    "strapi-plugin-netlify-deployments": "^2.0.0",
     "strapi-plugin-notes": "^1.0.1",
     "strapi-plugin-publisher": "^1.1.4",
-    "strapi-plugin-todo": "^0.0.9",
-    "strapi-stripe": "^3.1.0"
+    "strapi-plugin-todo": "^0.0.9"
   },
   "author": {
     "name": "A Strapi developer"
