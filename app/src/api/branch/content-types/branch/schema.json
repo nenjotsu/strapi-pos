@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "branches",
+  "info": {
+    "singularName": "branch",
+    "pluralName": "branches",
+    "displayName": "Branch"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ShortName": {
+      "type": "string",
+      "maxLength": 50,
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "maxLength": 100,
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 4000
+    },
+    "EnabledFlag": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

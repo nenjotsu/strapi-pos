@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "InvoiceNumber": {
+      "type": "string",
+      "maxLength": 30,
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "Amount": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Currency": {
+      "type": "enumeration",
+      "enum": [
+        "PHP",
+        "USD"
+      ]
+    },
+    "EnabledFlag": {
+      "type": "boolean"
+    },
+    "StartDate": {
+      "type": "date",
+      "required": true
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "CreatedBy"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "invoice"
+    }
+  }
+}

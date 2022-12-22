@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agents",
+  "info": {
+    "singularName": "agent",
+    "pluralName": "agents",
+    "displayName": "Agent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "PhoneNumber": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "MobileNumber": {
+      "type": "biginteger",
+      "required": true
+    },
+    "FirstName": {
+      "type": "string",
+      "maxLength": 100,
+      "required": true
+    },
+    "MiddleName": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "LastName": {
+      "type": "string",
+      "maxLength": 100,
+      "required": true
+    },
+    "Nickname": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "Title": {
+      "type": "enumeration",
+      "enum": [
+        "Mr",
+        "Mrs",
+        "Ms"
+      ]
+    },
+    "MaritalStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Married",
+        "Single",
+        "Widow"
+      ]
+    },
+    "Birthdate": {
+      "type": "date"
+    },
+    "EnabledFlag": {
+      "type": "boolean"
+    },
+    "HoldFlag": {
+      "type": "boolean"
+    },
+    "StartDate": {
+      "type": "date"
+    },
+    "customer_supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer-supplier.customer-supplier",
+      "inversedBy": "agents"
+    }
+  }
+}

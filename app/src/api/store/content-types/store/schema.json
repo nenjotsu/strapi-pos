@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stores",
+  "info": {
+    "singularName": "store",
+    "pluralName": "stores",
+    "displayName": "Store"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ShortName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30
+    },
+    "Name": {
+      "type": "string",
+      "maxLength": 200,
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000,
+      "required": true
+    },
+    "EnabledFlag": {
+      "type": "boolean",
+      "default": true
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::warehouse.warehouse",
+      "inversedBy": "stores"
+    }
+  }
+}

@@ -62,6 +62,31 @@
       ],
       "required": true,
       "customField": "plugin::multi-select.multi-select"
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "RegisteredDate": {
+      "type": "date"
+    },
+    "HoldFlag": {
+      "type": "boolean"
+    },
+    "CreditLimit": {
+      "type": "biginteger"
+    },
+    "Birthdate": {
+      "type": "date"
+    },
+    "ChildrenUnder18": {
+      "type": "boolean"
+    },
+    "agents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agent.agent",
+      "mappedBy": "customer_supplier"
     }
   }
 }

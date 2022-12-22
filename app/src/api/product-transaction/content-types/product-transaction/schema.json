@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_transactions",
+  "info": {
+    "singularName": "product-transaction",
+    "pluralName": "product-transactions",
+    "displayName": "Product Transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TRX_Number": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "Quantity": {
+      "type": "biginteger",
+      "required": true,
+      "min": "1"
+    },
+    "CancelFlag": {
+      "type": "boolean"
+    },
+    "CancelReason": {
+      "type": "text"
+    },
+    "StartDate": {
+      "type": "datetime"
+    },
+    "Transaction_ID": {
+      "type": "customField",
+      "customField": "plugin::field-uuid.uuid"
+    },
+    "customer_supplier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer-supplier.customer-supplier"
+    },
+    "warehouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::warehouse.warehouse"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "product_transactions"
+    }
+  }
+}

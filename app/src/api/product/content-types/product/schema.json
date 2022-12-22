@@ -1,0 +1,93 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ProductCode": {
+      "type": "string",
+      "maxLength": 30,
+      "required": true,
+      "unique": true
+    },
+    "ProductName": {
+      "type": "string",
+      "maxLength": 200,
+      "required": true,
+      "unique": true
+    },
+    "ShortDescription": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "LongDescription": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "Manufacturer": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "Barcode": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 50
+    },
+    "ReferenceNumber": {
+      "type": "string",
+      "maxLength": 30,
+      "unique": true
+    },
+    "Price": {
+      "type": "float",
+      "required": true
+    },
+    "Capacity": {
+      "type": "integer"
+    },
+    "Length": {
+      "type": "decimal"
+    },
+    "Height": {
+      "type": "decimal"
+    },
+    "Width": {
+      "type": "decimal"
+    },
+    "EnabledFlag": {
+      "type": "boolean",
+      "required": true
+    },
+    "StartDate": {
+      "type": "date"
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "products_promotion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::products-promotion.products-promotion"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-category.product-category",
+      "mappedBy": "products"
+    },
+    "product_transactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-transaction.product-transaction",
+      "mappedBy": "product"
+    }
+  }
+}

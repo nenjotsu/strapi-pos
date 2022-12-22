@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_sub_categories",
+  "info": {
+    "singularName": "product-sub-category",
+    "pluralName": "product-sub-categories",
+    "displayName": "Product Sub-Category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ShortName": {
+      "type": "string",
+      "maxLength": 30,
+      "required": true
+    },
+    "Name": {
+      "type": "string",
+      "maxLength": 200,
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000,
+      "required": false
+    },
+    "EnabledFlag": {
+      "type": "boolean",
+      "required": true
+    },
+    "product_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-category.product-category",
+      "inversedBy": "product_sub_categories"
+    }
+  }
+}

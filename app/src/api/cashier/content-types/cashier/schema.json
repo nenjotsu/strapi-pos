@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cashiers",
+  "info": {
+    "singularName": "cashier",
+    "pluralName": "cashiers",
+    "displayName": "Cashier"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CashierNumber": {
+      "type": "integer",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "EnabledFlag": {
+      "type": "boolean",
+      "default": true
+    },
+    "HoldFlag": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

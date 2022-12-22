@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "branch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::branch.branch"
+    },
+    "cashier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cashier.cashier"
+    },
+    "customer_supplier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer-supplier.customer-supplier"
+    },
+    "OrderType": {
+      "type": "enumeration",
+      "enum": [
+        "SO - Standard Purchase Orders",
+        "PPO - Planned Purchase Orders",
+        "BPO - Blanket Purchase Orders",
+        "CPO - Contract Purchase Orders"
+      ]
+    },
+    "OrderNumber": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 30,
+      "required": true
+    },
+    "OrderDate": {
+      "type": "date",
+      "required": true
+    },
+    "Status": {
+      "type": "string",
+      "maxLength": 30
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "EnabledFlag": {
+      "type": "boolean"
+    },
+    "HoldFlag": {
+      "type": "boolean"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "orders"
+    },
+    "products_promotions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::products-promotion.products-promotion",
+      "mappedBy": "order"
+    }
+  }
+}
