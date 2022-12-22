@@ -1,4 +1,4 @@
-# strapi-v4-base
+# strapi-pos (WIP)
 
 A Strapi v4 base using PostgreSQL, Typescript, Docker and Docker Compose
 

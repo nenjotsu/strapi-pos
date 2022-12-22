@@ -30,7 +30,7 @@ import pluginId from "../../pluginId";
 import { toProperCase } from "../../utils/strings";
 import getTrad from "../../utils/getTrad";
 
-const HomePage: React.VoidFunctionComponent = () => {
+const HomePage: React.FunctionComponent = () => {
   const { formatMessage, formatDate } = useIntl();
   const [loading, setLoading] = useState(false);
 
@@ -38,9 +38,9 @@ const HomePage: React.VoidFunctionComponent = () => {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current.focus();
+    // @ts-ignore
+    if (inputRef?.current != null) inputRef.current.focus();
   }, []);
-
 
   if (loading) {
     return (
@@ -67,15 +67,15 @@ const HomePage: React.VoidFunctionComponent = () => {
   }
 
   const sty = `
-  .centered {
-    width: 90vw;
-    height: 90vh;
-    margin: 5vh auto;
-  }
+    .centered {
+      width: 90vw;
+      height: 90vh;
+      margin: 5vh auto;
+    }
 
-  #SearchProduct {
-    padding-bottom: 3px;
-}
+    #SearchProduct {
+      padding-bottom: 3px;
+    }
 
     #searchbar {
       font-size: 1.2rem;
@@ -91,7 +91,7 @@ const HomePage: React.VoidFunctionComponent = () => {
   `;
 
   return (
-    <main  className="centered">
+    <main className="centered">
       <style>{sty}</style>
       {/* <BaseHeaderLayout
         title={formatMessage({ id: getTrad("plugin.name") })}
@@ -116,7 +116,7 @@ const HomePage: React.VoidFunctionComponent = () => {
         </SearchForm>
       </Box>
       {/* <ContentLayout> */}
-        {/* <Box padding={8} background="neutral100">
+      {/* <Box padding={8} background="neutral100">
           <TwoColsLayout
             startCol={
               <Box padding={4}>
@@ -130,43 +130,42 @@ const HomePage: React.VoidFunctionComponent = () => {
             }
           />
         </Box> */}
-        <Box padding={4} background="neutral100">
-          <GridLayout column={4}>
-            <Box
-              padding={4}
-              hasRadius
-              background="neutral0"
-              key={`box-${1}`}
-              shadow="tableShadow"
-            >
-              <Typography>hello world - {1}</Typography>
-            </Box>
-            <Box
-              padding={0}
-              hasRadius
-              // background="neutral0"
-              key={`box-${2}`}
-              // shadow="tableShadow"
-            >
-               <GridLayout>
-               {Array(20)
-              .fill(null)
-              .map((_, idx) => (
-                <Box
-                  padding={4}
-                  hasRadius
-                  background="neutral0"
-                  key={`box-${idx}`}
-                  shadow="tableShadow"
-                >
-                  <Typography>hello world - {idx}</Typography>
-                </Box>
-              ))}
-              </GridLayout>
-            </Box>
-           
-          </GridLayout>
-        </Box>
+      <Box padding={4} background="neutral100">
+        <GridLayout column={4}>
+          <Box
+            padding={4}
+            hasRadius
+            background="neutral0"
+            key={`box-${1}`}
+            shadow="tableShadow"
+          >
+            <Typography>hello world - {1}</Typography>
+          </Box>
+          <Box
+            padding={0}
+            hasRadius
+            // background="neutral0"
+            key={`box-${2}`}
+            // shadow="tableShadow"
+          >
+            <GridLayout>
+              {Array(20)
+                .fill(null)
+                .map((_, idx) => (
+                  <Box
+                    padding={4}
+                    hasRadius
+                    background="neutral0"
+                    key={`box-${idx}`}
+                    shadow="tableShadow"
+                  >
+                    <Typography>hello world - {idx}</Typography>
+                  </Box>
+                ))}
+            </GridLayout>
+          </Box>
+        </GridLayout>
+      </Box>
       {/* </ContentLayout> */}
     </main>
   );
