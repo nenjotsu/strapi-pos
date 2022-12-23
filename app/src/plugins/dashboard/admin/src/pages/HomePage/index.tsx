@@ -8,27 +8,30 @@ import React, { memo, useState, useRef, useEffect } from "react";
 import propTypes from "prop-types";
 import { useIntl } from "react-intl";
 
-import { EmptyStateLayout, useField } from "@strapi/design-system";
-import { BaseHeaderLayout, ContentLayout } from "@strapi/design-system";
-import { LinkButton } from "@strapi/design-system";
-import { Box } from "@strapi/design-system";
-import { Loader } from "@strapi/design-system";
-import { Link } from "@strapi/design-system";
-import { Typography } from "@strapi/design-system";
-import { Flex } from "@strapi/design-system";
-import { Button } from "@strapi/design-system";
-import { DatePicker } from "@strapi/design-system";
-import { Select, Option } from "@strapi/design-system";
-import { IconButton } from "@strapi/design-system";
-
-import { GridLayout } from "@strapi/design-system";
-import { TwoColsLayout } from "@strapi/design-system";
-
-import { Searchbar, SearchForm } from "@strapi/design-system";
+import {
+  EmptyStateLayout,
+  useField,
+  BaseHeaderLayout,
+  ContentLayout,
+  Box,
+  Loader,
+  Typography,
+  DatePicker,
+  GridLayout,
+  TwoColsLayout,
+  Searchbar,
+  SearchForm,
+  Button,
+  Icon
+} from "@strapi/design-system";
+import { Plus } from '@strapi/icons';
 
 import pluginId from "../../pluginId";
 import { toProperCase } from "../../utils/strings";
 import getTrad from "../../utils/getTrad";
+import { sty } from "./css";
+
+const ButtonSquare = ({ children, ...props }) => <Button {...props}>{children}</Button>
 
 const HomePage: React.FunctionComponent = () => {
   const { formatMessage, formatDate } = useIntl();
@@ -65,30 +68,6 @@ const HomePage: React.FunctionComponent = () => {
       </>
     );
   }
-
-  const sty = `
-    .centered {
-      width: 90vw;
-      height: 90vh;
-      margin: 5vh auto;
-    }
-
-    #SearchProduct {
-      padding-bottom: 3px;
-    }
-
-    #searchbar {
-      font-size: 1.2rem;
-    }
-
-    #searchForm > div > div > div.sc-kHdrYz.sc-bzPmhk.sc-hmvnCu.bOSjDK.cIIIUS.jpxwPM > div > div > svg {
-      font-size: 1.5rem;
-    }
-
-    .sc-jFkwbb.cQjcvc {
-      grid-template-columns: repeat(auto-fit,minmax(80px,1fr));
-    }
-  `;
 
   return (
     <main className="centered">
@@ -149,17 +128,28 @@ const HomePage: React.FunctionComponent = () => {
             // shadow="tableShadow"
           >
             <GridLayout>
+              {/* <Box
+                padding={4}
+                hasRadius
+                // background="neutral0"
+                // key={`box-${idx}`}
+                // shadow="tableShadow"
+              >
+                <Typography>+</Typography>
+              </Box> */}
               {Array(20)
                 .fill(null)
                 .map((_, idx) => (
                   <Box
-                    padding={4}
+                    // padding={4}
                     hasRadius
-                    background="neutral0"
+                    // background="neutral0"
                     key={`box-${idx}`}
                     shadow="tableShadow"
                   >
-                    <Typography>hello world - {idx}</Typography>
+                    <ButtonSquare startIcon={<Icon as={Plus} />} fullWidth className="square-btn">{idx} New</ButtonSquare>
+
+                    {/* <Typography>hello world - {idx}</Typography> */}
                   </Box>
                 ))}
             </GridLayout>

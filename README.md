@@ -4,29 +4,24 @@ A Strapi v4 base using PostgreSQL, Typescript, Docker and Docker Compose
 
 ## Development deployment
 
-1. Install `npm` dependencies (run command in `app` directory)
+1. Setup .env file in `app` directory.
+
+2. Install `npm` dependencies (run command in `app` directory and in `app/src/plugins/dashboard` directory)
 
     ```bash
-    npm i
+    cd app && npm i && cd src/plugins/dashboard && npm i && npm run build && cd ../../../../
     ```
 
-2. Launch development database
 
-    ```bash
-    docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d db
-    ```
+### Development Mode: Launch db and strapi
 
-3. Run Strapi in development mode
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d db && cd app && npm run develop && cd ..
 
-    ```bash
-    npm run develop
-    ```
+// Shutdown development database (optional)
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
+```
 
-4. Shutdown development database (optional)
-
-    ```bash
-    docker-compose -f docker-compose.yml -f docker-compose.dev.yml down
-    ```
 
 ## Production deployment
 
@@ -41,3 +36,6 @@ A Strapi v4 base using PostgreSQL, Typescript, Docker and Docker Compose
     ```bash
     docker-compose up -d --build
     ```
+
+## Schema Diagram
+![Schema Diagram](schema-diagram.png)
